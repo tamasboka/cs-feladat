@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Xml;
 
 namespace hazi0916
 {
@@ -421,7 +419,7 @@ namespace hazi0916
             Console.WriteLine((a * b) / lnko);
 
         }
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
             F31();
         }
