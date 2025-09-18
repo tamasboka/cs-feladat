@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml;
 
 namespace hazi0916
 {
@@ -383,15 +384,43 @@ namespace hazi0916
             int num_smaller = ReadInt("Elso szam: ");
             int num_bigger = ReadInt("Masodik szam: ");
             int temp = num_smaller;
-            while ()
+            if (num_smaller > num_bigger)
             {
-
+                temp = num_smaller;
+                num_smaller = num_bigger;
+                num_bigger = temp;
             }
-            
+            while (num_bigger % temp != 0)
+            {
+                temp--;
+            }
+            if (temp != 1)
+            {
+                while (num_smaller > 0)
+                {
+                    temp = num_smaller;
+                    num_smaller = num_bigger % num_smaller;
+                    num_bigger = temp;
+                }
+                Console.WriteLine(num_bigger);
+            }
+        }
+        static void F31()
+        {
+            int num_smaller = ReadInt("Elso szam: ");
+            int num_bigger = ReadInt("Masodik szam: ");
+            int temp = num_smaller;
+            if (num_smaller > num_bigger)
+            {
+                temp = num_smaller;
+                num_smaller = num_bigger;
+                num_bigger = temp;
+            }
+
         }
         static void Main(string[] args)
         {
-            F27();
+            F30();
         }
     }
 }
