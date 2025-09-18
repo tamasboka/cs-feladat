@@ -419,9 +419,43 @@ namespace hazi0916
             Console.WriteLine((a * b) / lnko);
 
         }
-        static void Main(string[] args) 
+        static void F32()
         {
-            F31();
+            int num = ReadInt("Szám: ");
+            for (int i = 1; i <= num; i++)
+            {
+                for (int j = 1; j <= num; j++)
+                {
+                    Console.Write(i * j + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void F33()
+        {
+            int num = ReadInt("Szám: ");
+            for (int i = 1; i <= num; i++)
+            {
+                for (int j = 1; j <= num; j++)
+                {
+                    
+                }
+                Console.WriteLine();
+            }
+        }
+        static void F34()
+        {
+            for (int num1 = 10; num1 < 100; num1++)
+            {
+                for (int num2 = 10; num2 < 100; num2++)
+                {
+
+                }
+            }
+        }
+            static void Main(string[] args) 
+        {
+            F33();
         }
     }
 }
