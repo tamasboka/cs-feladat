@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Xml;
 
 namespace hazi0916
@@ -55,6 +56,32 @@ namespace hazi0916
                 num = ReadInt(message);
             } while (num < 1);
             return num;
+        }
+
+        static int Lnko(int a, int b)
+        {
+            int temp = a;
+            if (a > b)
+            {
+                temp = a;
+                a = b;
+                b = temp;
+            }
+            while (b % temp != 0)
+            {
+                temp--;
+            }
+            if (temp != 1)
+            {
+                while (a > 0)
+                {
+                    temp = a;
+                    a = b % a;
+                    b = temp;
+                }
+                return b;
+            }
+            return 0;
         }
 
         static void F1()
@@ -381,46 +408,22 @@ namespace hazi0916
         }
         static void F30()
         {
-            int num_smaller = ReadInt("Elso szam: ");
-            int num_bigger = ReadInt("Masodik szam: ");
-            int temp = num_smaller;
-            if (num_smaller > num_bigger)
-            {
-                temp = num_smaller;
-                num_smaller = num_bigger;
-                num_bigger = temp;
-            }
-            while (num_bigger % temp != 0)
-            {
-                temp--;
-            }
-            if (temp != 1)
-            {
-                while (num_smaller > 0)
-                {
-                    temp = num_smaller;
-                    num_smaller = num_bigger % num_smaller;
-                    num_bigger = temp;
-                }
-                Console.WriteLine(num_bigger);
-            }
+            int a = ReadInt("Elso szam: ");
+            int b = ReadInt("Masodik szam: ");
+            int lnko = Lnko(a, b);
+            Console.WriteLine(lnko);
         }
         static void F31()
         {
-            int num_smaller = ReadInt("Elso szam: ");
-            int num_bigger = ReadInt("Masodik szam: ");
-            int temp = num_smaller;
-            if (num_smaller > num_bigger)
-            {
-                temp = num_smaller;
-                num_smaller = num_bigger;
-                num_bigger = temp;
-            }
+            int a = ReadInt("Elso szam: ");
+            int b = ReadInt("Masodik szam: ");
+            int lnko = Lnko(a, b);
+            Console.WriteLine((a * b) / lnko);
 
         }
         static void Main(string[] args)
         {
-            F30();
+            F31();
         }
     }
 }
