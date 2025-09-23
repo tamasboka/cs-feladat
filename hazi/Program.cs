@@ -529,9 +529,35 @@ namespace hazi0916
                 Console.WriteLine();
             }
         }
+
+        static void F39()
+        {
+            int row = ReadInt("Sor: ");
+            int col = ReadInt("Oszlop: ");
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    if (i == 0 || i == row-1) 
+                    {
+                        Console.Write("*");
+                    }
+                    else if (j == 0 || j == col-1)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write(" ");
+                    }
+                }
+
+                Console.WriteLine();
+            }
+        }
             static void Main(string[] args) 
         {
-            F38();
+            F39();
         }
     }
 }
