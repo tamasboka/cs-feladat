@@ -503,11 +503,31 @@ namespace hazi0916
         {
             int a = ReadInt("Sor: ");
             string stars = "*";
-            while (a != 0)
+            for (int i = 0; i < a; i++)
             {
-                Console.WriteLine(stars);
-                stars += "**";
-                a--;
+                for (int j = 0; j < i + 1; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void F38()
+        {
+            int a = ReadInt("Sor: ");
+            string stars = "";
+            for (int i = 0; i < a; i++)
+            {
+                stars += " ";
+            }
+            stars += "*";
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = a; j != 0; j--)
+                {
+                    Console.WriteLine();
+                }
             }
         }
             static void Main(string[] args) 
