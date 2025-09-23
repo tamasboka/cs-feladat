@@ -555,9 +555,28 @@ namespace hazi0916
                 Console.WriteLine();
             }
         }
+
+        static void F40()
+        {
+            int num = ReadInt("Szám: ");
+            int sum = 0;
+            for (int j = 1; j < num; j++)
+            {
+                for (int i = 1; i < j + 1; i++)
+                {
+                    if (j % i == 0) sum += i;
+                }
+                if (sum == j * 2)
+                {
+                    Console.WriteLine($"{j}");
+                }
+                sum = 0;
+            }
+            
+        }
             static void Main(string[] args) 
         {
-            F39();
+            F40();
         }
     }
 }
