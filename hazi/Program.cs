@@ -582,8 +582,16 @@ namespace hazi0916
             {
                 for (int j = 0; j < alphabet.Length; j++)
                 {
-                    
+                    if (index >= alphabet.Length)
+                    {
+                        index = 0;
+                    }
+                    Console.Write(alphabet[index]);
+                    index++;
                 }
+
+                index = i + 1;
+                Console.WriteLine();
             }
         }
             static void Main(string[] args) 
