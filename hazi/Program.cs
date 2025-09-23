@@ -475,9 +475,44 @@ namespace hazi0916
                 Console.WriteLine("\t");
             }
         }
+
+        static void F36()
+        {
+            int row = ReadInt("Sorok száma: ");
+            int col = ReadInt("Oszlopok száma: ");
+            bool x = true;
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    if (x)
+                    {
+                        Console.Write("X");
+                    }
+                    else
+                    {
+                        Console.Write("O");
+                    }
+                    x = !x;
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void F37()
+        {
+            int a = ReadInt("Sor: ");
+            string stars = "*";
+            while (a != 0)
+            {
+                Console.WriteLine(stars);
+                stars += "**";
+                a--;
+            }
+        }
             static void Main(string[] args) 
         {
-            F35();
+            F37();
         }
     }
 }
