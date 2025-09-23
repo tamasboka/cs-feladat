@@ -594,9 +594,9 @@ namespace hazi0916
                 Console.WriteLine();
             }
         }
-            static void Main(string[] args) 
+        static void Main(string[] args) 
         {
-            F41();
+            
         }
     }
 }
