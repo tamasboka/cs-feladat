@@ -516,23 +516,22 @@ namespace hazi0916
         static void F38()
         {
             int a = ReadInt("Sor: ");
-            string stars = "";
             for (int i = 0; i < a; i++)
             {
-                stars += " ";
-            }
-            stars += "*";
-            for (int i = 0; i < a; i++)
-            {
-                for (int j = a; j != 0; j--)
+                for (int j = 1; j <= a - i; j++)
                 {
-                    Console.WriteLine();
+                    Console.Write(" ");
                 }
+                for (int j = 1; j <= 2 * i - 1; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
             }
         }
             static void Main(string[] args) 
         {
-            F37();
+            F38();
         }
     }
 }
