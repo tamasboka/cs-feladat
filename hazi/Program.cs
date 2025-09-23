@@ -572,11 +572,23 @@ namespace hazi0916
                 }
                 sum = 0;
             }
-            
+        }
+
+        static void F41()
+        {
+            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            int index = 0;
+            for (int i = 0; i < alphabet.Length; i++)
+            {
+                for (int j = 0; j < alphabet.Length; j++)
+                {
+                    
+                }
+            }
         }
             static void Main(string[] args) 
         {
-            F40();
+            F41();
         }
     }
 }
