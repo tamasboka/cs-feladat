@@ -449,13 +449,18 @@ namespace hazi0916
             {
                 for (int num2 = 10; num2 < 100; num2++)
                 {
-
+                    int flippednum1 = int.Parse($"{num1.ToString()[1]}{num1.ToString()[0]}");
+                    int flippednum2 = int.Parse($"{num2.ToString()[1]}{num2.ToString()[0]}");
+                    if (num1 * num2 == flippednum1 * flippednum2)
+                    {
+                        Console.WriteLine($"{num1}, {num2}");
+                    }
                 }
             }
         }
             static void Main(string[] args) 
         {
-            F33();
+            F34();
         }
     }
 }
