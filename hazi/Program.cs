@@ -458,9 +458,26 @@ namespace hazi0916
                 }
             }
         }
+
+        static void F35()
+        {
+            int ascii = 97;
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if (ascii < 123)
+                    {
+                        Console.Write($"{Convert.ToChar(ascii)} {ascii}\t");
+                        ascii++;    
+                    }
+                }
+                Console.WriteLine("\t");
+            }
+        }
             static void Main(string[] args) 
         {
-            F34();
+            F35();
         }
     }
 }
