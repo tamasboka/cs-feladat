@@ -56,6 +56,27 @@ namespace hazi0916
             return num;
         }
 
+        static int[] ReadIntArr(int len)
+        {
+            int[] arr = new int[len];
+            int odd_count = 0;
+            for (int i = 0; i < len; i++)
+            {
+                arr[i] = ReadInt($"Tömb {i + 1}. eleme: ");
+            }
+            Console.WriteLine(odd_count);
+            return arr;
+        }
+        static string[] ReadStrArr(int len)
+        {
+            string[] arr = new string[len];
+            for (int i = 0; i < len; i++)
+            {
+                arr[i] = ReadStr($"Tömb {i + 1}. eleme: ");
+            }
+            return arr;
+        }
+
         static int Lnko(int a, int b)
         {
             int temp = a;
@@ -594,9 +615,102 @@ namespace hazi0916
                 Console.WriteLine();
             }
         }
-        static void Main(string[] args) 
+        static void F42()
         {
-            
+            int[] arr = ReadIntArr(ReadInt("Hossz: "));
+            int odd_count = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] % 2 != 0) odd_count++;
+            }
+            Console.WriteLine(odd_count);
+        }
+        static void F43()
+        {
+            int[] arr = ReadIntArr(ReadInt("Hossz: "));
+            int even_count = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] % 2 == 0) even_count++;
+            }
+            Console.WriteLine(even_count);
+        }
+        static void F44()
+        {
+            int[] arr = ReadIntArr(ReadInt("Hossz: "));
+            int[] indexes = new int[arr.Length];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] % 2 == 0) indexes[i] = i;
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (indexes[i] != 0)
+                {
+                    Console.WriteLine($"i: {indexes[i]-1} - szám: {arr[i]}");
+                }   
+            }
+        }
+        static void F45()
+        {
+            int[] arr = ReadIntArr(ReadInt("Hossz: "));
+            int num = ReadInt("Szám: ");
+            int index = -1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == num && index == -1)
+                {
+                    index = i;
+                }
+            }
+            if (index == -1)
+            {
+                Console.WriteLine("Nincs benne a tömbben");
+            } else
+            {
+                Console.WriteLine("index: "+index);
+            }
+        }
+        static void F46()
+        {
+            int[] arr = ReadIntArr(ReadInt("Hossz: "));
+            int num = ReadInt("Szám: ");
+            int count = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == num)
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
+        }
+        static void F47()
+        {
+            string[] arr = ReadStrArr(ReadInt("Hossz: "));
+            string find_name = ReadStr("Keresett név: ");
+            int name_count = 0;
+            foreach (string name in arr)
+            {
+                if (name == find_name)
+                {
+                    name_count++;
+                }
+            }
+        }
+        static void F48()
+        {
+            int[] arr = ReadIntArr(ReadInt("Hossz: "));
+            int min = arr[0];
+            int max = arr[0];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] < arr[min]) min = i;
+                if (arr[i] > arr[max]) max = i;
+            }
+            static void Main(string[] args) 
+        {
+            F47();
         }
     }
 }
