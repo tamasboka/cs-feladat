@@ -59,12 +59,10 @@ namespace hazi0916
         static int[] ReadIntArr(int len)
         {
             int[] arr = new int[len];
-            int odd_count = 0;
             for (int i = 0; i < len; i++)
             {
                 arr[i] = ReadInt($"Tömb {i + 1}. eleme: ");
             }
-            Console.WriteLine(odd_count);
             return arr;
         }
         static string[] ReadStrArr(int len)
@@ -708,9 +706,10 @@ namespace hazi0916
                 if (arr[i] < arr[min]) min = i;
                 if (arr[i] > arr[max]) max = i;
             }
-            static void Main(string[] args) 
+        }
+        static void Main(string[] args) 
         {
-            F47();
+            F48();
         }
     }
 }
