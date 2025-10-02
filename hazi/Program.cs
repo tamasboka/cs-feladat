@@ -502,6 +502,10 @@ namespace hazi0916
             bool x = true;
             for (int i = 0; i < row; i++)
             {
+                if (row % 2 == 0)
+                {
+                    x = !x;
+                }
                 for (int j = 0; j < col; j++)
                 {
                     if (x)
@@ -707,9 +711,118 @@ namespace hazi0916
                 if (arr[i] > arr[max]) max = i;
             }
         }
+        static void F49()
+        {
+            int[] arr = ReadIntArr(ReadInt("Hossz: "));
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    //Console.WriteLine(j);
+                    //Console.WriteLine(arr.Length);
+                    if (arr[j] < arr[j+1])
+                    {
+                        int tmp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = tmp;
+                    }
+                }
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+        }
+        static void F50()
+        {
+            foreach (char c in ReadStr("Szöveg: "))
+            {
+                Console.Write(c + " ");
+            }
+        }
+        static void F51()
+        {
+            string str = ReadStr("Szöveg: ");
+            string ch = ReadStr("Karakter: ");
+            foreach (char c in str)
+            {
+                if (c.ToString() != ch)
+                {
+                    Console.Write(c);
+                }
+            }
+        }
+        static void F52()
+        {
+            string str = ReadStr("Szöveg: ");
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    Console.WriteLine(str[i]);
+                }
+            }
+        }
+        static void F53()
+        {
+            string str = ReadStr("Szöveg: ");
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                Console.WriteLine(Convert.ToInt32(str[i]));
+            }
+        }
+        static void F54()
+        {
+            string str = ReadStr("Szöveg: ");
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                Console.Write(str[i]);
+            }
+        }
+        static void F55()
+        {
+            string str = ReadStr("Szöveg: ");
+            string[] split = str.Split(' ');
+            for (int i = split.Length - 1; i >= 0; i--)
+            {
+                Console.WriteLine(split[i]);
+            }
+        }
+        static void F56()
+        {
+            string str = ReadStr("Szöveg: ");
+            for (int i = str.Length -1; i >= 0; i--)
+            {
+                Console.Write(str[i].ToString().ToUpper());
+            }
+        }
+        static void F57()
+        {
+            string str = ReadStr("Szöveg: ");
+            string[] split = str.Split(' ');
+            for (int i = 0; i < split.Length; i++)
+            {
+                Console.WriteLine(split[i].Substring(0, 1).ToUpper() + split[i].Substring(1).ToLower() + " ");
+            }
+        }
+        static void F58()
+        {
+            StreamReader streamReader = new StreamReader("feladat58.be");
+            //Console.WriteLine(streamReader.ReadLine());
+            int len = int.Parse(streamReader.ReadLine());
+            int max = int.Parse(streamReader.ReadLine());
+            for (int i = 0; i < len - 3; i++)
+            {
+                if (int.Parse(streamReader.ReadLine()) > max)
+                {
+                    max = int.Parse(streamReader.ReadLine());
+                }
+            }
+            Console.WriteLine($"Legnagyobb szám: {max}");
+        }
         static void Main(string[] args) 
         {
-            F48();
+            F58();
         }
     }
 }
