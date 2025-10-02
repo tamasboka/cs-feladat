@@ -75,23 +75,37 @@ namespace hazi0916
             }
             return arr;
         }
-        static int[] IntArrFromTxt(string file)
+        static int[] IntArrFromTxt(string file, bool hasLength)
         {
             StreamReader streamReader = new StreamReader(file);
-            int len = int.Parse(streamReader.ReadLine());
+            int len;
+            if (hasLength)
+            {
+                len = int.Parse(streamReader.ReadLine());
+            } else
+            {
+                len = 100;
+            }
             int[] nums = new int[len];
-            for (int i = 0; i < len; i++)
+            for (int i = 0; !streamReader.EndOfStream; i++)
             {
                 nums[i] = int.Parse(streamReader.ReadLine());
             }
             return nums;
         }
-        static string[] StrArrFromTxt(string file)
+        static string[] StrArrFromTxt(string file, bool hasLength)
         {
             StreamReader streamReader = new StreamReader(file);
-            int len = int.Parse(streamReader.ReadLine());
+            int len;
+            if (hasLength)
+            {
+                len = int.Parse(streamReader.ReadLine());
+            } else
+            {
+                len = 100;
+            }
             string[] strings = new string[len];
-            for (int i = 0; i < len; i++)
+            for (int i = 0; !streamReader.EndOfStream; i++)
             {
                 strings[i] = streamReader.ReadLine();
             }
@@ -845,7 +859,7 @@ namespace hazi0916
         {
             StreamReader streamReader = new StreamReader("forras58.be");
             //Console.WriteLine(streamReader.ReadLine());
-            int[] nums = IntArrFromTxt("forras58.be");
+            int[] nums = IntArrFromTxt("forras58.be", true);
             int max = nums[0];
             for (int i = 0; i < nums.Length; i++)
             {
@@ -855,7 +869,7 @@ namespace hazi0916
         }
         static void F59()
         {
-            int[] nums = IntArrFromTxt("forras59.be");
+            int[] nums = IntArrFromTxt("forras59.be", true);
             List<int> osszesparos = new List<int>();
             for (int i = 0; i < nums.Length; i++)
             {
@@ -873,7 +887,7 @@ namespace hazi0916
         }
         static void F60()
         {
-            int[] nums = IntArrFromTxt("forras60.be");
+            int[] nums = IntArrFromTxt("forras60.be", true);
             int sum = 0;
             int count = 0;
             for (int i = 0; i < nums.Length; i++)
@@ -888,7 +902,7 @@ namespace hazi0916
         }
         static void F61()
         {
-            string[] strings = StrArrFromTxt("forras61.be");
+            string[] strings = StrArrFromTxt("forras61.be", true);
             int max = 0;
             for (int i = 0; i < strings.Length; i++)
             {
@@ -898,7 +912,7 @@ namespace hazi0916
         }
         static void F62()
         {
-            string[] strings = StrArrFromTxt("forras62.be");
+            string[] strings = StrArrFromTxt("forras62.be", true);
             for (int i = 0; i < strings.Length; i++)
             {
                 if (strings[i][0] == 'a' || strings[i][0] == 'A') Console.WriteLine(strings[i]);
@@ -906,16 +920,37 @@ namespace hazi0916
         }
         static void F63()
         {
-            int[] nums = IntArrFromTxt("forras63.be");
+            int[] nums = IntArrFromTxt("forras63.be", true);
             nums = bubblesort(nums, false);
             foreach (int num in nums)
             {
                 Console.Write(num + " ");
             }
         }
+        static void F64()
+        {
+            string[] strings = StrArrFromTxt("forras64.be", true);
+            int min = 0;
+            Array.Sort(strings);
+            for (int i = 0; i < strings.Length; i++)
+            {
+                Console.WriteLine(strings[i]);
+            }
+        }
+        static void F65()
+        {
+            int[] nums = IntArrFromTxt("forras65.be", false);
+            int min = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                Console.WriteLine(nums[i]);
+                if (nums[i] < nums[min]) min = i;
+            }
+            Console.WriteLine("Legkisebb szám: "+nums[min]);
+        }
         static void Main(string[] args) 
         {
-            F63();
+            F65();
         }
     }
 }
