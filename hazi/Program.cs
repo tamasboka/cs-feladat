@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace hazi0916
 {
@@ -74,7 +75,28 @@ namespace hazi0916
             }
             return arr;
         }
-
+        static int[] IntArrFromTxt(string file)
+        {
+            StreamReader streamReader = new StreamReader(file);
+            int len = int.Parse(streamReader.ReadLine());
+            int[] nums = new int[len];
+            for (int i = 0; i < len; i++)
+            {
+                nums[i] = int.Parse(streamReader.ReadLine());
+            }
+            return nums;
+        }
+        static string[] StrArrFromTxt(string file)
+        {
+            StreamReader streamReader = new StreamReader(file);
+            int len = int.Parse(streamReader.ReadLine());
+            string[] strings = new string[len];
+            for (int i = 0; i < len; i++)
+            {
+                strings[i] = streamReader.ReadLine();
+            }
+            return strings;
+        }
         static int Lnko(int a, int b)
         {
             int temp = a;
@@ -100,7 +122,34 @@ namespace hazi0916
             }
             return 0;
         }
-
+        static int[] bubblesort(int[] arr, bool asc = true)
+        {
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    if (asc)
+                    {
+                        if (arr[j] > arr[j + 1])
+                        {
+                            int tmp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j + 1] = tmp;
+                        }
+                    } else
+                    {
+                        if (arr[j] < arr[j + 1])
+                        {
+                            int tmp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j + 1] = tmp;
+                        }
+                    }
+                    
+                }
+            }
+            return arr;
+        }
         static void F1()
         {
             Console.WriteLine("Hello, World!");
@@ -714,20 +763,7 @@ namespace hazi0916
         static void F49()
         {
             int[] arr = ReadIntArr(ReadInt("Hossz: "));
-            for (int i = arr.Length - 1; i >= 0; i--)
-            {
-                for (int j = 0; j < i; j++)
-                {
-                    //Console.WriteLine(j);
-                    //Console.WriteLine(arr.Length);
-                    if (arr[j] < arr[j+1])
-                    {
-                        int tmp = arr[j];
-                        arr[j] = arr[j + 1];
-                        arr[j + 1] = tmp;
-                    }
-                }
-            }
+            arr = bubblesort(arr);
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.Write(arr[i] + " ");
@@ -807,22 +843,79 @@ namespace hazi0916
         }
         static void F58()
         {
-            StreamReader streamReader = new StreamReader("feladat58.be");
+            StreamReader streamReader = new StreamReader("forras58.be");
             //Console.WriteLine(streamReader.ReadLine());
-            int len = int.Parse(streamReader.ReadLine());
-            int max = int.Parse(streamReader.ReadLine());
-            for (int i = 0; i < len - 3; i++)
+            int[] nums = IntArrFromTxt("forras58.be");
+            int max = nums[0];
+            for (int i = 0; i < nums.Length; i++)
             {
-                if (int.Parse(streamReader.ReadLine()) > max)
+                if (nums[i] > nums[max]) max = i;
+            }
+            Console.WriteLine($"Legnagyobb szám: {nums[max]}");
+        }
+        static void F59()
+        {
+            int[] nums = IntArrFromTxt("forras59.be");
+            List<int> osszesparos = new List<int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] % 2 == 0) osszesparos.Add(nums[i]);
+            }
+            int min = 0;
+            for (int i = 0; i < osszesparos.Count; i++)
+            {
+                if (osszesparos[i] < osszesparos[min])
                 {
-                    max = int.Parse(streamReader.ReadLine());
+                    min = i;
                 }
             }
-            Console.WriteLine($"Legnagyobb szám: {max}");
+            Console.WriteLine("Legkisebb páros: "+osszesparos[min]);
+        }
+        static void F60()
+        {
+            int[] nums = IntArrFromTxt("forras60.be");
+            int sum = 0;
+            int count = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] % 2 != 0) 
+                {
+                    sum += nums[i];
+                    count++;
+                }
+            }
+            Console.WriteLine($"Páratlan számok átlaga: {sum / count}");
+        }
+        static void F61()
+        {
+            string[] strings = StrArrFromTxt("forras61.be");
+            int max = 0;
+            for (int i = 0; i < strings.Length; i++)
+            {
+                if (strings[i].Length > strings[max].Length) max = i;
+            }
+            Console.WriteLine($"Leghosszabb szó: {strings[max]}");
+        }
+        static void F62()
+        {
+            string[] strings = StrArrFromTxt("forras62.be");
+            for (int i = 0; i < strings.Length; i++)
+            {
+                if (strings[i][0] == 'a' || strings[i][0] == 'A') Console.WriteLine(strings[i]);
+            }
+        }
+        static void F63()
+        {
+            int[] nums = IntArrFromTxt("forras63.be");
+            nums = bubblesort(nums, false);
+            foreach (int num in nums)
+            {
+                Console.Write(num + " ");
+            }
         }
         static void Main(string[] args) 
         {
-            F58();
+            F63();
         }
     }
 }
